@@ -22,7 +22,7 @@ function setup() {
 }
 
 function draw() {
-  backgroundPattern(patterns[0]);
+  backgroundPattern(shapes[0].pattern);
 
   for (let s of shapes) {
     fillPattern(s.pattern);
