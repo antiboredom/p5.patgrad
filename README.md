@@ -7,7 +7,7 @@ PatGrad.p5.js a relatively easy way to add patterns and gradients to your p5.js 
 [Download the library]() and add the script tag to your index.html file, after you load in p5:
 
 ```html
-<script src="patgrad.p5.js"></script>
+<script src="p5.patgrad.js"></script>
 ```
 
 ## Patterns
