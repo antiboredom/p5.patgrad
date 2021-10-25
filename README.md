@@ -1,10 +1,10 @@
 # PatGrad.p5
 
-PatGrad.p5.js a relatively easy way to add patterns and gradients to your p5.js sketches. Read below for brief examples, or see the [examples]() folder.
+PatGrad.p5.js a relatively easy way to add patterns and gradients to your p5.js sketches. Read below for brief examples and functionality, or see the [examples](https://github.com/antiboredom/p5.patgrad/tree/main/examples) folder.
 
 ## Installation
 
-[Download the library]() and add the script tag to your index.html file, after you load in p5:
+[Download the library](https://raw.githubusercontent.com/antiboredom/p5.patgrad/main/p5.patgrad.js) and add the script tag to your index.html file, after you load in p5:
 
 ```html
 <script src="p5.patgrad.js"></script>
@@ -49,6 +49,7 @@ let pattern;
 function setup() {
   createCanvas(500, 500);
   let buffer = createGraphics(5, 5);
+  buffer.pixelDensity(1);
   buffer.background(255);
   buffer.line(0, 0, 5, 5);
   pattern = createPattern(buffer);
@@ -102,6 +103,8 @@ function draw() {
   pop();
 }
 ```
+
+ALSO, if you're using a graphics object as a pattern, set it's pixel density to 1 to avoid everything being twice as big as you intended...
 
 ## Functions
 
@@ -173,7 +176,7 @@ Creates a conic gradient and returns a gradient object.
 
 Fills a gradient with colors. Takes any number of position (a number from 0 to 1) and color values. You can also call the function multiple times to continue to add colors.
 
-`position`: where the color should start. Must be a number between 0 and 1 where 0 represents 0% and 1 represents 100%.
+`position`: where the color should start. Must be a number between 0 and 1, where 0 represents 0% and 1 represents 100%.
 
 `color`: a color to start at the position you've selected. Can be a p5 color (using the `color()` function), or anything that's recognizable as a css color (a hex value, a color name, etc).
 
@@ -209,5 +212,3 @@ Sets the stroke style to your gradient. Just like the `stroke()` function.
 ### `backgroundGradient(gradient)`
 
 Sets the background to your gradient.
-
----
