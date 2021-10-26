@@ -28,6 +28,10 @@ function setup() {
 }
 
 function draw() {
+  // // uncomment for some animation...
+  // gradient2 = createRadialGradient(0, 100);
+  // gradient2.colors(0, color(abs(sin(frameCount/100))*200), 1, color(abs(cos(frameCount/100))*200));
+
   // set the background to gradient3
   backgroundGradient(gradient3);
 
@@ -35,8 +39,6 @@ function draw() {
 
   // you must always call fillGradient OUTSIDE push and pop
   fillGradient(gradient1);
-  strokeGradient(gradient2);
-  strokeWeight(20);
 
   // you must always translate to apply the gradient properly
   // maybe I can figure out a way to fix this??? Or maybe I can't!

@@ -71,49 +71,57 @@ p5.ConicGradient = class ConicGradient extends p5.Gradient {
   }
 };
 
-p5.prototype.createLinearGradient = (angle, width) => {
+p5.prototype.createLinearGradient = function (angle, width) {
   return new p5.LinearGradient(angle, width);
 };
 
-p5.prototype.createConicGradient = (angle, x, y) => {
+p5.prototype.createConicGradient = function (angle, x, y) {
   return new p5.ConicGradient(angle, x, y);
 };
 
-p5.prototype.createRadialGradient = (innerRadius, outerRadius, x, y) => {
+p5.prototype.createRadialGradient = function (innerRadius, outerRadius, x, y) {
   return new p5.RadialGradient(innerRadius, outerRadius, x, y);
 };
 
-p5.prototype.fillGradient = (gradient) => {
-  drawingContext.fillStyle = gradient.gradient ? gradient.gradient : gradient;
+p5.prototype.fillGradient = function (gradient) {
+  this.drawingContext.fillStyle = gradient.gradient ? gradient.gradient : gradient;
 };
 
-p5.prototype.strokeGradient = (gradient) => {
-  drawingContext.strokeStyle = gradient.gradient ? gradient.gradient : gradient;
+p5.prototype.strokeGradient = function (gradient) {
+  this.drawingContext.strokeStyle = gradient.gradient ? gradient.gradient : gradient;
 };
 
-p5.prototype.backgroundGradient = (gradient) => {
-  drawingContext.fillStyle = gradient.gradient ? gradient.gradient : gradient;
-  drawingContext.fillRect(0, 0, width, height);
+p5.prototype.backgroundGradient = function (gradient) {
+  this.drawingContext.fillStyle = gradient.gradient ? gradient.gradient : gradient;
+  this.drawingContext.fillRect(0, 0, this.width, this.height);
 };
 
-p5.prototype.createPattern = (patternElement, repeat) => {
+p5.prototype.createPattern = function (patternElement, repeat) {
   if (patternElement.canvas) {
     patternElement = patternElement.canvas;
   } else if (patternElement.elt) {
     patternElement = patternElement.elt;
   }
-  return drawingContext.createPattern(patternElement, repeat || "repeat");
+  return this.drawingContext.createPattern(patternElement, repeat || "repeat");
 };
 
-p5.prototype.fillPattern = (pattern) => {
-  drawingContext.fillStyle = pattern;
+p5.prototype.createSimplePattern = (func, w, h, repeat) => {
+  let buffer = this.createGraphis(w || 5, h || 5);
+  buffer.pixelDensity(1);
+  buffer.background(255);
+  func(buffer);
+  return this.drawingContext.createPattern(buffer.canvas, repeat || "repeat");
 };
 
-p5.prototype.strokePattern = (pattern) => {
-  drawingContext.strokeStyle = pattern;
+p5.prototype.fillPattern = function (pattern) {
+  this.drawingContext.fillStyle = pattern;
 };
 
-p5.prototype.backgroundPattern = (pattern) => {
-  drawingContext.fillStyle = pattern;
-  drawingContext.fillRect(0, 0, width, height);
+p5.prototype.strokePattern = function (pattern) {
+  this.drawingContext.strokeStyle = pattern;
+};
+
+p5.prototype.backgroundPattern = function (pattern) {
+  this.drawingContext.fillStyle = pattern;
+  this.drawingContext.fillRect(0, 0, width, height);
 };
