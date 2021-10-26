@@ -1,5 +1,7 @@
 # p5.PatGrad
 
+![spinning patterns](./patterns.gif?raw=true)
+
 p5.patgrad.js a relatively easy way to add patterns and gradients to your p5.js sketches. Read below for brief examples and functionality, or see the [examples](https://github.com/antiboredom/p5.patgrad/tree/main/examples) folder.
 
 ## Installation
