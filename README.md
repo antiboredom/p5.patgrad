@@ -10,6 +10,12 @@ p5.patgrad.js a relatively easy way to add patterns and gradients to your p5.js 
 <script src="p5.patgrad.js"></script>
 ```
 
+Or just load it up from github:
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/antiboredom/p5.patgrad/p5.patgrad.js"></script>
+```
+
 ## Patterns
 
 You can create repeating patterns from images or from p5Graphics objects using the `createPattern()` function, and then use them to fill shapes with `fillPattern()`, or stroke shapes with `strokePattern()`.
