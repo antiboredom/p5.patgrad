@@ -35,8 +35,6 @@ p5.LinearGradient = class LinearGradient extends p5.Gradient {
     const x = cos(this.angle) * this.width;
     const y = sin(this.angle) * this.width;
 
-    console.log(x, y, this.angle);
-
     this.gradient = drawingContext.createLinearGradient(0, 0, x, y);
   }
 };
