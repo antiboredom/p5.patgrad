@@ -104,7 +104,7 @@ p5.prototype.createPattern = function (patternElement, repeat) {
 };
 
 p5.prototype.createSimplePattern = (func, w, h, repeat) => {
-  let buffer = this.createGraphis(w || 5, h || 5);
+  let buffer = this.createGraphics(w || 5, h || 5);
   buffer.pixelDensity(1);
   buffer.background(255);
   func(buffer);
